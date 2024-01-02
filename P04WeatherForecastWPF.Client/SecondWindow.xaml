@@ -1,0 +1,24 @@
+﻿<Window x:Class="P04WeatherForecastWPF.Client.SecondWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:P04WeatherForecastWPF.Client"
+        mc:Ignorable="d"
+        Title="SecondWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock Text="This is a second window."/>
+        <DataGrid ItemsSource="{Binding FavouriteCitiesList}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="X" Command="{Binding DataContext.MyProperty, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}" CommandParameter="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
